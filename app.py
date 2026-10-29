@@ -19,13 +19,13 @@ st.markdown(
     [data-testid="stMetric"] {background: white; border: 1px solid #DDE8E5; padding: 1rem; border-radius: 0.8rem;}
     .project-kicker {color: #0F766E; font-size: 0.86rem; font-weight: 700; letter-spacing: .08em; line-height: 1.5; padding-top: .35rem;}
     .project-card {background: linear-gradient(135deg, #E8F3F1 0%, #F8FBFA 100%); border: 1px solid #CFE5DF; border-radius: 1rem; padding: 1.2rem 1.4rem;}
-    .module-card {display: block; min-height: 9.5rem; padding: 1rem; border: 1px solid #D7E7E2; border-radius: .9rem; background: #FFFFFF; text-decoration: none !important; transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;}
-    .module-card:hover {transform: translateY(-2px); border-color: #5BA89A; box-shadow: 0 .45rem 1.1rem rgba(15, 118, 110, .12);}
-    .module-card:focus-visible {outline: 3px solid rgba(15, 118, 110, .3); outline-offset: 2px;}
+    .module-card {display: block; text-decoration: none !important; cursor: pointer;}
+    .module-card span {display: block;}
+    .module-card:hover .module-title {color: #0F766E; text-decoration: underline; text-underline-offset: .2rem;}
+    .module-card:focus-visible {outline: 2px solid rgba(15, 118, 110, .35); outline-offset: .25rem; border-radius: .25rem;}
     .module-number {color: #0F766E; font-size: .78rem; font-weight: 700; letter-spacing: .08em; margin-bottom: .35rem;}
     .module-title {font-size: 1.18rem; font-weight: 700; color: #16302B; line-height: 1.35; margin-bottom: .45rem;}
     .module-copy {font-size: .86rem; color: #5B6F69; line-height: 1.55;}
-    .module-enter {margin-top: .7rem; color: #0F766E; font-size: .8rem; font-weight: 700;}
     </style>
     """,
     unsafe_allow_html=True,
@@ -58,10 +58,9 @@ def home() -> None:
         with column:
             st.markdown(
                 f'<a class="module-card" href="{page_path}" target="_self" aria-label="进入{title}模块">'
-                f'<div class="module-number">{number}</div>'
-                f'<div class="module-title">{title}</div>'
-                f'<div class="module-copy">{description}</div>'
-                f'<div class="module-enter">点击进入 →</div>'
+                f'<span class="module-number">{number}</span>'
+                f'<span class="module-title">{title}</span>'
+                f'<span class="module-copy">{description}</span>'
                 f'</a>',
                 unsafe_allow_html=True,
             )
